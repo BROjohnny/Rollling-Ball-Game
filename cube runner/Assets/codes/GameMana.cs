@@ -5,8 +5,10 @@ public class GameMana : MonoBehaviour
 {
     bool IsgameEnded = false;
 
-    public GameObject CompleteLevelUI;
+    public GameObject restartlevel;
 
+    public GameObject CompleteLevelUI;
+    public GameObject CollisionUI;
     public void LevelComplte()
     {
         CompleteLevelUI.SetActive(true);
@@ -16,11 +18,12 @@ public class GameMana : MonoBehaviour
         if (IsgameEnded == false) { 
             Debug.Log("Game Over");
             IsgameEnded = true;
-            Invoke("Restart", 1f);
+            CollisionUI.SetActive(true);
         }
     }
 
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 }
